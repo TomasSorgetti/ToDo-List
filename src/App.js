@@ -57,21 +57,24 @@ function App() {
             Add ToDo
           </button>
         </div>
-        <div className=" w-full">
+        <div className=" w-full flex flex-col gap-2">
           {list.length > 0 && (
             <div className="flex flex-col gap-2 w-full">
               {list.map(({ id, value }, i) => (
-                <div key={id} className="flex justify-between  px-4 p-3 bg-gray-600 ">
-                  <div className="flex">
+                <div
+                  key={id}
+                  className="flex justify-between  px-4 p-3 bg-gray-600 "
+                >
+                  <div className="flex gap-2">
                     <p>{i + 1}</p>
                     <p>{value}</p>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-2">
                     <button onClick={() => markAsDone(id)}>
-                      <MdOutlineDone />
+                      <MdOutlineDone size="1.4rem" />
                     </button>
                     <button onClick={() => deleteItem(id)}>
-                      <MdDelete />
+                      <MdDelete size="1.4rem" />
                     </button>
                   </div>
                 </div>
@@ -79,9 +82,11 @@ function App() {
             </div>
           )}
           {done.length > 0 && (
-            <div>
+            <div className="flex justify-between  px-4 p-3 bg-gray-600 ">
               {done.map(({ id, value }) => (
-                <p key={id}>{value}</p>
+                <p className="line-through text-gray-300" key={id}>
+                  {value}
+                </p>
               ))}
             </div>
           )}

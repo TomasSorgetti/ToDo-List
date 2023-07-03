@@ -14,7 +14,7 @@ function App() {
     e.preventDefault();
     seterror("")
     if (input.length > 28) {
-      seterror("demasiados caracteres")
+      seterror("too many letters");
       setInput("");
       return
     }
@@ -58,7 +58,7 @@ function App() {
           />
           <button
             className="bg-gray-500 
-        py-2 rounded w-40 lg:py-4"
+        py-2 rounded w-40 lg:py-4 hover:bg-gray-600 hover:shadow-xl hover:font-bold"
             onClick={addItem}
           >
             Add ToDo

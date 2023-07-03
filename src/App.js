@@ -35,44 +35,57 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Todo List App</h1>
-      <p>Created by Tomás Sorgetti</p>
-      <div>
-        <input
-          type="text"
-          placeholder="Create new web page"
-          value={input}
-          onChange={changeInput}
-        />
-        <button onClick={addItem}>Add ToDo</button>
-      </div>
-      <div>
-        {list.length > 0 && (
-          <div>
-            {list.map(({ id, value }, i) => (
-              <div key={id}>
-                <div>
-                  <p>{i + 1}</p>
-                  <p>{value}</p>
+    <div className="bg-gray-800 flex items-center justify-center h-screen ">
+      <div className=" bg-gray-700 flex flex-col items-center justify-center gap-10 text-white p-10">
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-6xl">Todo List App</h1>
+          <p className="text-gray-300">Created by Tomás Sorgetti</p>
+        </div>
+        <div className="flex gap-6">
+          <input
+            className="rounded-xl px-3 text-black"
+            type="text"
+            placeholder="Add new ToDo..."
+            value={input}
+            onChange={changeInput}
+          />
+          <button
+            className="bg-gray-500 
+        p-2 px-3 rounded-xl"
+            onClick={addItem}
+          >
+            Add ToDo
+          </button>
+        </div>
+        <div className=" w-full">
+          {list.length > 0 && (
+            <div className="flex flex-col gap-2 w-full">
+              {list.map(({ id, value }, i) => (
+                <div key={id} className="flex justify-between  px-4 p-3 bg-gray-600 ">
+                  <div className="flex">
+                    <p>{i + 1}</p>
+                    <p>{value}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <button onClick={() => markAsDone(id)}>
+                      <MdOutlineDone />
+                    </button>
+                    <button onClick={() => deleteItem(id)}>
+                      <MdDelete />
+                    </button>
+                  </div>
                 </div>
-                <button onClick={() => markAsDone(id)}>
-                  <MdOutlineDone />
-                </button>
-                <button onClick={() => deleteItem(id)}>
-                  <MdDelete />
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
-        {done.length > 0 && (
-          <div>
-            {done.map(({id, value }) => (
-              <p key={id}>{value}</p>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+          {done.length > 0 && (
+            <div>
+              {done.map(({ id, value }) => (
+                <p key={id}>{value}</p>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

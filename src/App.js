@@ -44,10 +44,12 @@ function App() {
       setDone((prevList)=>prevList.filter((item)=>item.id !== id))
     }
   return (
-    <div className="bg-gray-800 flex items-center justify-center h-screen ">
+    <div className="bg-gray-800 flex items-center justify-center h-screen font-roboto">
       <div className="rounded bg-gray-700 flex flex-col items-center justify-center gap-10 text-white p-10 w-11/12 max-w-md lg:max-w-xl lg:p-16">
         <div className="flex flex-col items-center gap-2">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl">Todo List App</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Todo List App
+          </h1>
           <p className="text-gray-400 italic">Created by Tomás Sorgetti</p>
           {error && <span className="text-red-600">{error}</span>}
         </div>

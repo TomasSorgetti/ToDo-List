@@ -42,7 +42,12 @@ function App() {
 
   const deleteDoneItem = (id) => {
       setDone((prevList)=>prevList.filter((item)=>item.id !== id))
+  }
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      addItem(e);
     }
+  };
   return (
     <div className="bg-gray-800 flex items-center justify-center h-screen font-roboto">
       <div className="rounded bg-gray-700 flex flex-col items-center justify-center gap-10 text-white p-10 w-11/12 max-w-md lg:max-w-xl lg:p-16">
@@ -60,6 +65,7 @@ function App() {
             placeholder="Add new ToDo..."
             value={input}
             onChange={changeInput}
+            onKeyDown={handleKeyDown}
           />
           <button
             className="bg-gray-500 

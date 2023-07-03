@@ -40,6 +40,9 @@ function App() {
     setList((prevList) => prevList.filter((item) => item.id !== id));
   };
 
+  const deleteDoneItem = (id) => {
+      setDone((prevList)=>prevList.filter((item)=>item.id !== id))
+    }
   return (
     <div className="bg-gray-800 flex items-center justify-center h-screen ">
       <div className="rounded bg-gray-700 flex flex-col items-center justify-center gap-10 text-white p-10 w-11/12 max-w-md lg:max-w-xl lg:p-16">
@@ -83,7 +86,10 @@ function App() {
                       />
                     </button>
                     <button onClick={() => deleteItem(id)}>
-                      <MdDelete size="1.4rem" className="hover:scale-125 hover:fill-current hover:text-gray-300" />
+                      <MdDelete
+                        size="1.4rem"
+                        className="hover:scale-125 hover:fill-current hover:text-gray-300"
+                      />
                     </button>
                   </div>
                 </div>
@@ -94,12 +100,17 @@ function App() {
             {done.length > 0 && (
               <div className="flex flex-col gap-2 w-full">
                 {done.map(({ id, value }) => (
-                  <p
-                    className="line-through text-gray-400 px-4 p-3 bg-gray-600 w-full rounded lg:text-2xl lg:px-6"
-                    key={id}
-                  >
-                    {value}
-                  </p>
+                  <div className="flex justify-between  px-4 p-3 bg-gray-600 rounded lg:py-4 lg:text-2xl lg:px-6">
+                    <div className="flex gap-2 line-through text-gray-400">
+                      <p>{value}</p>
+                    </div>
+                    <button onClick={() => deleteDoneItem(id)}>
+                      <MdDelete
+                        size="1.4rem"
+                        className="hover:scale-125 hover:fill-current hover:text-gray-300"
+                      />
+                    </button>
+                  </div>
                 ))}
               </div>
             )}

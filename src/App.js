@@ -79,11 +79,11 @@ function App() {
                     <button onClick={() => markAsDone(id)}>
                       <MdOutlineDone
                         size="1.4rem"
-                        className="hover:scale-125"
+                        className="hover:scale-125 hover:fill-current hover:text-gray-300"
                       />
                     </button>
                     <button onClick={() => deleteItem(id)}>
-                      <MdDelete size="1.4rem" className="hover:scale-125" />
+                      <MdDelete size="1.4rem" className="hover:scale-125 hover:fill-current hover:text-gray-300" />
                     </button>
                   </div>
                 </div>
